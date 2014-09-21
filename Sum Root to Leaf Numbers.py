@@ -10,7 +10,7 @@ class Solution:
     # @return an integer
     def sumNumbers(self, root):
         numbers = self.findNumbers(root)
-        real_numbers = [int(number) for number in numbers]
+        real_numbers = [int(number) for number in numbers] #convert string to integer
         return sum(real_numbers)
     
     def findNumbers(self,root):
