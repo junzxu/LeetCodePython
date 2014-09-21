@@ -21,7 +21,7 @@ class Solution:
                 
         #second iteration, search for ranges outside the first transaction
         Max_two = max(self.oneTrans(prices[0:lo]), self.oneTrans(prices[hi+1:]))
-        Max_total = Max_one + max(Max_two,0)
+        Max_total = Max_one + Max_two
         
         #divide the first transactions
         first_trans = prices[lo+1:hi]
