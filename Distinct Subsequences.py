@@ -19,4 +19,4 @@ class Solution:
                 else:
                     DP[i][j] = DP[i][j-1]
         
-        return max(DP[-1])
+        return DP[-1][-1]
