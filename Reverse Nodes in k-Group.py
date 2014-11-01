@@ -9,29 +9,19 @@ class Solution:
     # @param k, an integer
     # @return a ListNode
     def reverseKGroup(self, head, k):
-        if k <= 0:
-            return head
-        pre = ListNode(0)
-        pre.next = self.reverseK(head,k)
-        return pre.next
-    
-    def reverseK(self, start, k):
-        #reverse next k nodes and return the beginning of reversed list
+        if head is None or k <= 0: return head
+        new_head = head
         count = k-1
-        end = start
-        while count>0 and end:
-            end = end.next
+        while new_head and count > 0:
+            new_head = new_head.next
             count -= 1
-        if end == None:
-            return start
-            
-        pre = start
-        cur = start.next
-        start.next = self.reverseK(end.next, k)
-        for i in range(0,k-1):
-            next = cur.next
+        if count != 0 or new_head == None:
+            return head
+        pre = self.reverseKGroup(new_head.next, k)
+        cur = head
+        while pre != new_head:
+            new_cur = cur.next
             cur.next = pre
             pre = cur
-            cur = next
-        return end
-            
+            cur = new_cur
+        return new_head
