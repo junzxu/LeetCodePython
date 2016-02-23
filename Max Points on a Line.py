@@ -32,7 +32,7 @@ class Solution:
                     slope = (1.0*(p1.x-p2.x))/(p1.y-p2.y)
                 visited[slope] = visited.get(slope,0) + 1 #count number of line with same slope
             if len(visited) > 0:
-                Num = 1 + number + max(visited.iteritems(), key= lambda (k,v):v)[1]
+                Num = 1 + number + max([v for (k,v) in visited.iteritems()])
             else:
                 Num = 1+number
             if Num > maxNum:
