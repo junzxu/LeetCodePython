@@ -7,21 +7,11 @@
 class Solution:
     # @param a ListNode
     # @return a ListNode
-    def swapPairs(self, head):
-        if not head:
-            return None
-        pre = ListNode(0)
-        pre.next = self.swapPair(head)
-        return pre.next
-    
-    def swapPair(self,start):
-        if start == None:
-            return None
-        elif start.next == None:
-            return start
-        else:
-            next_next = start.next.next
-            new_start = start.next
-            new_start.next = start
-            start.next = self.swapPair(next_next)
-            return new_start
+	if not head or not head.next: return head
+
+	newHead = head.next
+
+	head.next = self.swapPairs(newHead.next)
+	newHead.next = head
+
+	return newHead
