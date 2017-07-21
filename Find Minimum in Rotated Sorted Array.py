@@ -3,14 +3,11 @@ class Solution:
     # @return an integer
     def findMin(self, num):
         lo = 0
-        hi = len(num)
-        #binary search to find the largest element
-        while lo<hi:
+        hi = len(nums)-1
+        while lo < hi:
             mid = lo + (hi-lo)/2
-            if num[mid] <= num[lo]:
-                hi = mid
+            if nums[mid] > nums[hi]:
+                lo = mid + 1
             else:
-                lo = mid
-        
-        index = (lo+1)%len(num)
-        return num[index]
+                hi = mid
+        return nums[lo]
