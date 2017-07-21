@@ -1,7 +1,7 @@
 class Solution:
     # @param num, a list of integer
     # @return an integer
-    def findMin(self, num):
+    def findMin(self, nums):
         lo = 0
         hi = len(nums)-1
         while lo < hi:
