@@ -13,13 +13,13 @@ class Solution:
         if node is None:
             return
         head = UndirectedGraphNode(node.label)
+        self.Map[node.label] = head
         for neighbor in node.neighbors:
             if neighbor == node:
                 head.neighbors.append(head)
                 continue
             if not self.Map.has_key(neighbor.label):
                 new_neighbor = self.cloneGraph(neighbor)
-                self.Map[neighbor.label] = new_neighbor
             else:
                 new_neighbor = self.Map[neighbor.label]
             head.neighbors.append(new_neighbor)
